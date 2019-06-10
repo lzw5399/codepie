@@ -1,5 +1,9 @@
 # codepie.vue
 
+> Codepie front-end project
+
+[![Build Status](https://dev.azure.com/Zhiwen-Lin/Codepie/_apis/build/status/Codepie-Vue?branchName=master)](https://dev.azure.com/Zhiwen-Lin/Codepie/_build/latest?definitionId=8&branchName=master)
+
 ## Project setup
 ```
 npm install

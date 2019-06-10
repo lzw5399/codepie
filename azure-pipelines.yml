@@ -1,0 +1,102 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  tagName: '$(Build.BuildNumber)'
+  imageName: '$(dockerid)/codepiefe:$(tagName)'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+
+  # - script: |
+  #     npm install
+  #     npm run build
+  #   displayName: 'npm install and build'
+
+  - script: docker build -f Dockerfile -t $(imageName) .
+    displayName: 'Docker build'
+
+  - script: |
+      docker login -u $(dockerid) -p $(password)
+      docker push $(imageName)
+    displayName: 'Push docker image'
+
+  - task: SSH@0
+    displayName: 'Run shell inline on remote machine'
+    inputs:
+      sshEndpoint: 'aliyun_centos'
+      runOptions: inline
+
+      inline: |
+        # stop container
+        containers=$(docker ps -q --filter name=codepiefe)
+        if test -n "$containers"; 
+        then
+        docker stop $(docker ps -q --filter name=codepiefe) >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to stop container...'
+         exit $rc;
+        fi
+        fi
+
+        # remove container
+        containers1=$(docker ps -q -a --filter name=codepiefe)
+        if test -n "$containers1"; 
+        then
+        docker rm $(docker ps -q -a --filter name=codepiefe) >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to remove container...'
+         exit $rc;
+        fi
+        fi
+
+        # remove image
+        containers2=$(docker images | grep codepiefe | awk '{print $3}')
+        if test -n "$containers2"; 
+        then
+        docker rmi $(docker images | grep codepiefe | awk '{print $3}') >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to remove image...'
+         exit $rc;
+        fi
+        fi
+
+        # pull newest image
+        docker pull $(imageName) >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to pull container...'
+         exit $rc;
+        fi
+
+        # run image
+        docker run -d -p 8082:80 --name codepiefe $(imageName) >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to run container...'
+         exit $rc;
+        fi
+
+        # remove useless images
+        danglings=$(docker images -f "dangling=true" -q)
+        if test -n "$danglings";
+        then
+        docker rmi $(docker images -f "dangling=true" -q) >> /dev/null 2>&1
+        rc=$?
+        if [[ $rc != 0 ]];
+        then
+         echo 'failed to remove danglings container...'
+         exit $rc;
+        fi
+        fi
