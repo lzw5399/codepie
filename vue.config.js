@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const uglifyPlugin = require('uglifyjs-webpack-plugin') // npm install --save--dev uglifyjs-webpack-plugin
+const UglifyPlugin = require('uglifyjs-webpack-plugin') // npm install --save--dev uglifyjs-webpack-plugin
 
 // 这个是我们自己新建的webpack配置文件
 // 因为vue-cli 3.x把所有的webpack配置都内置了，但是我们还可以通过这种方式进行配置重写
@@ -38,7 +38,7 @@ module.exports = {
           }
         },
         minimizer: [
-          new uglifyPlugin({
+          new UglifyPlugin({
             uglifyOptions: {
               compress: {
                 warnings: false,
