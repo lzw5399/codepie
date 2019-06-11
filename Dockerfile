@@ -1,21 +1,23 @@
-FROM node:slim
+FROM node:8-slim
 
-RUN mkdir /app
+RUN apt-get update  && apt-get install -y nginx
 
-COPY ./deploy/server.js /app/server.js
+WORKDIR /usr/src/app
 
-COPY ./dist /app/dist
+COPY ["package.json", "./"]
 
-WORKDIR /app
+RUN npm install
 
-RUN echo '{}' > package.json
+COPY . .
 
-RUN npm install express --save
+RUN npm run build
 
-RUN npm install connect-history-api-fallback --save
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
-RUN npm install helmet --save
+EXPOSE 80
 
-EXPOSE 8090
+RUN cp -r dist/* /var/www/html \
+    && rm -rf /user/src/app
 
-ENTRYPOINT ["node", "server.js"]
+CMD ["nginx","-g","daemon off;"]
