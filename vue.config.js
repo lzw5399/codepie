@@ -4,7 +4,7 @@ const UglifyPlugin = require('uglifyjs-webpack-plugin') // npm install --save--d
 // 这个是我们自己新建的webpack配置文件
 // 因为vue-cli 3.x把所有的webpack配置都内置了，但是我们还可以通过这种方式进行配置重写
 module.exports = {
-  publicPath: process.env.BASE_URL,
+  // publicPath: process.env.BASE_URL,
   // webpack-dev-server 相关配置
   devServer: {
     open: false, // 返回当前平台类型（'darwin', 'freebsd', 'linux', 'sunos' 或者 'win32'）
