@@ -24,7 +24,7 @@ app.use(require('connect-history-api-fallback')())
 
 app.use(serveStatic('./dist'))
 
-var port = 8090
+var port = 80
 app.listen(port)
 
 console.log('server started ' + port)
