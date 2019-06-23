@@ -1,7 +1,9 @@
 # codepie.vue
 
 > Codepie front-end project
->https://www.codepie.fun
+
+> https://www.codepie.fun
+
 [![Build Status](https://dev.azure.com/Zhiwen-Lin/Codepie/_apis/build/status/Codepie.vue?branchName=master)](https://dev.azure.com/Zhiwen-Lin/Codepie/_build/latest?definitionId=9&branchName=master)
 
 ## Project setup
