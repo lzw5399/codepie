@@ -27,7 +27,7 @@ steps:
   - task: SSH@0
     displayName: 'Run shell inline on remote machine'
     inputs:
-      sshEndpoint: 'aliyun_centos'
+      sshEndpoint: 'tencent_centos'
       runOptions: inline
 
       inline: |
