@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <img
+    <!-- <img
       alt="Vue logo"
       src="../assets/logo.png"
-    />
+    /> -->
     <HelloWorld :msg="msg" />
   </div>
 </template>
@@ -19,7 +19,8 @@ export default {
   },
   data() {
     return {
-      msg: process.env.NODE_ENV
+      // msg: process.env.NODE_ENV
+      msg: 'To be implemented'
     }
   },
   components: {
