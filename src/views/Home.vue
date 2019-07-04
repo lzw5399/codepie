@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       // msg: process.env.NODE_ENV
-      msg: 'To be implemented'
+      msg: 'To be implemented!'
     }
   },
   components: {
