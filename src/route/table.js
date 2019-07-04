@@ -4,7 +4,7 @@ const loadView = view => {
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: loadView('Home')
   },
@@ -12,6 +12,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: loadView('About')
+  },
+  {
+    path: '/',
+    name: 'index',
+    component: loadView('Index')
   }
 ]
 
