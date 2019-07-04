@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <!-- <img
+    <img
       alt="Vue logo"
-      src="../assets/logo.png"
-    /> -->
+      src="../assets/avatar.jpg"
+    />
     <HelloWorld :msg="msg" />
   </div>
 </template>

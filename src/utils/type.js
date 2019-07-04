@@ -1,0 +1,6 @@
+export const AuthCookieName = '.ASPXAUTH'
+export const IsAuthorized = 'clged'
+// export const CurrentUserStorageKey = 'Lavazza_CurrentUser'
+// export const CheckoutStepStorageKey = 'Lavazza_Checkout_Step'
+// export const CheckoutCreateDataStorageKey = 'Lavazza_Checkout_Create_Data'
+// export const CheckoutEditDataStorageKey = 'Lavazza_Checkout_Edit_Data'
