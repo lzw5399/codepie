@@ -4,6 +4,11 @@ const loadView = view => {
 
 const routes = [
   {
+    path: '/',
+    name: 'dash',
+    component: loadView('Dashboard')
+  },
+  {
     path: '/home',
     name: 'home',
     component: loadView('Home')
