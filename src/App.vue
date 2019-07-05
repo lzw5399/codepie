@@ -57,7 +57,8 @@ export default {
       active: 'home',
       inPage: 'home',
       outPage: '',
-      navigation: ['home', 'about', 'friends', 'links']
+      // navigation: ['home', 'about', 'friends', 'links']
+      navigation: ['home', 'about']
     }
   },
   created() { },
