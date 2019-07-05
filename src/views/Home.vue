@@ -4,7 +4,7 @@
       <img src="../assets/images/avatar.jpg">
     </div>
     <div class="content">
-      <h1>宝树呐的个人主页</h1>
+      <h1>Zhiwen Lin的个人主页</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
       <h1>开发中... {{ randomKaomoji }}</h1>
     </div>
