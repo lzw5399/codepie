@@ -1,7 +1,7 @@
-var express = require('express')
-var serveStatic = require('serve-static')
-var helmet = require('helmet')
-var app = express()
+let express = require('express')
+let serveStatic = require('serve-static')
+let helmet = require('helmet')
+let app = express()
 
 app.disable('x-powered-by')
 
