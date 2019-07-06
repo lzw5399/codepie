@@ -22,6 +22,12 @@ module.exports = {
         named: 'never',
         asyncArrow: 'always'
       }
+    ],
+    'no-use-before-define': [
+      'error',
+      {
+        variables: false
+      }
     ]
   },
   parserOptions: {
