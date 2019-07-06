@@ -11,31 +11,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'vue-app',
-  data() {
-    return {
-      // eslint-disable-next-line vue/no-reserved-keys
-      _hmt: this._hmt || []
-    }
-  },
-
-  beforeMount() {
-    this.addVisitorTraffic()
-  },
-
-  methods: {
-    addVisitorTraffic() {
-      let hm = document.createElement('script')
-      hm.src = 'https://hm.baidu.com/hm.js?9ef817de9ac6d7b7c73e599208a5150b'
-      let s = document.getElementsByTagName('script')[0]
-      s.parentNode.insertBefore(hm, s)
-    }
-  }
-}
-</script>
-
 <style lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
