@@ -136,7 +136,7 @@ export default {
   }
   .navigation {
     position: fixed;
-    right: 0;
+    left: 0;
     top: 10px;
     transition: all 0.3s;
     li {
