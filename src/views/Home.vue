@@ -6,7 +6,7 @@
     <div class="content">
       <h1>Zhiwen Lin的个人主页</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
-      <h1>开发中... {{ randomKaomoji }}</h1>
+      <h1>{{ randomKaomoji }}</h1>
     </div>
   </div>
 </template>
