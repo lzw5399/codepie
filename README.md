@@ -1,6 +1,6 @@
 # codepie.vue
 
-> https://www.codepie.fun
+> https://codepie.fun
 
 [![Build Status](https://dev.azure.com/Zhiwen-Lin/Codepie/_apis/build/status/Codepie.vue?branchName=master)](https://dev.azure.com/Zhiwen-Lin/Codepie/_build/latest?definitionId=9&branchName=master)
 
