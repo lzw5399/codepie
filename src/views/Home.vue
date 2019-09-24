@@ -4,7 +4,7 @@
       <img src="../assets/images/avatar.jpg">
     </div>
     <div class="content">
-      <h1>Zhiwen Lin的个人主页</h1>
+      <h1>Zhiwen Lin的个人主页 isMobile={{isMobile}}</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
       <h1>{{ randomKaomoji }}</h1>
     </div>
@@ -15,6 +15,7 @@ export default {
   props: {},
   data() {
     return {
+      isMobile: null
     }
   },
   computed: {
@@ -35,7 +36,10 @@ export default {
     }
   },
   created() { },
-  mounted() { },
+  mounted() {
+    let flag = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+    this.isMobile = flag
+  },
   methods: {}
 }
 </script>
