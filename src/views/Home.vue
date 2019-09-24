@@ -5,6 +5,7 @@
     </div>
     <div class="content">
       <h1>Zhiwen Lin的个人主页 isMobile={{isMobile}}</h1>
+      <h1>userAgent={{userAgent}}</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
       <h1>{{ randomKaomoji }}</h1>
     </div>
@@ -15,7 +16,8 @@ export default {
   props: {},
   data() {
     return {
-      isMobile: null
+      isMobile: null,
+      userAgent: null
     }
   },
   computed: {
@@ -37,6 +39,7 @@ export default {
   },
   created() { },
   mounted() {
+    this.userAgent = navigator.userAgent
     let flag = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
     this.isMobile = flag
   },
