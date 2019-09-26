@@ -4,8 +4,7 @@
       <img src="../assets/images/avatar.jpg">
     </div>
     <div class="content">
-      <h1>Zhiwen Lin的个人主页 isMobile={{isMobile}}</h1>
-      <h1>userAgent={{userAgent}}</h1>
+      <h1>Zhiwen Lin的个人主页</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
       <h1>{{ randomKaomoji }}</h1>
     </div>
