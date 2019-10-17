@@ -4,7 +4,7 @@
       <img src="../assets/images/avatar.jpg">
     </div>
     <div class="content">
-      <h1>Zhiwen Lin的个人主页</h1>
+      <h1>Nothing for now</h1>
       <!-- <h1>{{ randomKaomoji }}つロ 乾杯</h1> -->
       <h1>{{ randomKaomoji }}</h1>
     </div>
@@ -25,12 +25,12 @@ export default {
         '( ˊ ▽ ` )',
         '(゜-゜)',
         'o(￣ヘ￣o#)',
-        '(ﾉ´∀` *)'
-        // "(●'◡'●)",
-        // '(｡・`ω´･)',
-        // '(´･ω･｀)',
-        // '(´･ω･`)',
-        // '╮(╯ω╰)'
+        '(ﾉ´∀` *)',
+        "(●'◡'●)",
+        '(｡・`ω´･)',
+        '(´･ω･｀)',
+        '(´･ω･`)',
+        '╮(╯ω╰)'
       ]
 
       return kaomoji[Math.floor(kaomoji.length * Math.random())]
