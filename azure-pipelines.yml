@@ -1,5 +1,4 @@
-pool:
-  vmImage: 'ubuntu-latest'
+
 
 trigger:
   branches:
@@ -13,23 +12,28 @@ variables:
   tagName: '$(Build.BuildNumber)'
   imageName: '$(dockerid)/codepiefe:$(tagName)'
 
-steps:
-  - script: |
-      npm install
-      npm run build
-    displayName: 'npm install and build'
+jobs:
+  - job: prepare_published_files
+    pool:
+      vmImage: 'ubuntu-latest'
 
-  - script: docker build -f Dockerfile -t $(imageName) .
-    displayName: 'Docker build'
+    steps:
+      - script: |
+          npm install
+          npm run build
+        displayName: 'npm install and build'
 
-  - script: |
-      docker login -u $(dockerid) -p $(password)
-      docker push $(imageName)
-    displayName: 'Push docker image'
+      - script: docker build -f Dockerfile -t $(imageName) .
+        displayName: 'Docker build'
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish temp files'
-    inputs:
-      PathtoPublish: 'docker-compose.yml'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
+      - script: |
+          docker login -u $(dockerid) -p $(password)
+          docker push $(imageName)
+        displayName: 'Push docker image'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish temp files'
+        inputs:
+          PathtoPublish: 'docker-compose.yml'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
