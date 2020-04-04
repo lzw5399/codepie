@@ -26,3 +26,10 @@ steps:
       docker login -u $(dockerid) -p $(password)
       docker push $(imageName)
     displayName: 'Push docker image'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish temp files'
+    inputs:
+      PathtoPublish: 'docker-compose.yml'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
