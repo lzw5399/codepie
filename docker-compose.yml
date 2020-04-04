@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  codepiefe:
+    # image name will be dynamically replaced by environment variable
+    image: ${image-name}
+    container_name: codepiefe
+    ports:
+      - "8082:80"
+    restart: 
+      on-failure
