@@ -31,6 +31,7 @@ export default {
         '(´･ω･｀)',
         '(´･ω･`)',
         '╮(╯ω╰)'
+        // 'orz'
       ]
 
       return kaomoji[Math.floor(kaomoji.length * Math.random())]
